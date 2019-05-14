@@ -1,0 +1,28 @@
+server:
+  servlet-path: /koala/synthe
+  port: 9001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+jasypt:
+  encryptor:
+    password: koala
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.99.127.212:3306/micro_koala_synthe_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: mikouo
+    password: 7W8hkQ5eNtHDNCDrs6+4bGzWG8LXRZy9
+    initialize: false
+    tomcat:
+      max-active: 200
+      test-while-idle: false
+      test-on-borrow: true
+      validation-query: select 1
+      remove-abandoned: true
+      remove-abandoned-timeout: 300
+      log-abandoned: true
