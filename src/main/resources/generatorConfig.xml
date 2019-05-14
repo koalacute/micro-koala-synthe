@@ -13,7 +13,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://47.99.127.212:3306/micro_koala_synthe_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false"
+                        connectionURL="jdbc:mysql://47.99.127.212:3306/micro_koala_synthe_dev?useSSL=false"
                         userId="mikouo"
                         password="mikouo123">
         </jdbcConnection>
@@ -35,11 +35,11 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <!--<table schema="" tableName="t_user_info" domainObjectName="UserInfo">
+        <!--<table schema="" tableName="t_koala_fg_message" domainObjectName="FgMessage">
     </table>-->
 
-        <!--<table schema="" tableName="t_order_info" domainObjectName="OrderInfo">
-    </table>-->
+        <table schema="" tableName="t_koala_fg_error" domainObjectName="FgError">
+    </table>
 
         <!--<table schema="" tableName="t_bank_info" domainObjectName="BankInfo">-->
     <!--</table>-->

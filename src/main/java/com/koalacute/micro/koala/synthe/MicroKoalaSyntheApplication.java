@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 @EnableEurekaClient
 @SpringBootApplication
 @MapperScan("com.koalacute.micro.koala.synthe.mapper")
-@ComponentScan({"com.koalacute.micro"})
+@ComponentScan("com.koalacute")
 @PropertySource(value = "classpath:/config/*.yml", ignoreResourceNotFound = true)
 public class MicroKoalaSyntheApplication {
 
