@@ -1,6 +1,6 @@
 package com.koalacute.micro.koala.synthe.service.notify;
 
-import com.koalacute.microkoala.utils.util.ServiceUtil;
+import com.koalacute.micro.koala.utils.util.ServiceUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

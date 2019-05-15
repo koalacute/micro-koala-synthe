@@ -2,9 +2,9 @@ package com.koalacute.micro.koala.synthe.service.remote;
 
 import com.koalacute.micro.koala.synthe.dto.FgSendMessageDto;
 import com.koalacute.micro.koala.synthe.dto.response.FgResponse;
-import com.koalacute.microkoala.utils.dto.HttpResponseNotOkException;
-import com.koalacute.microkoala.utils.util.GsonUtils;
-import com.koalacute.microkoala.utils.util.HttpClientUtils;
+import com.koalacute.micro.koala.utils.dto.HttpResponseNotOkException;
+import com.koalacute.micro.koala.utils.util.GsonUtils;
+import com.koalacute.micro.koala.utils.util.HttpClientUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -21,9 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 

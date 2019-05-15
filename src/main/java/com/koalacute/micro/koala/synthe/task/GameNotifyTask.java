@@ -22,7 +22,7 @@ public class GameNotifyTask {
     @Autowired
     private GameNotifyService gameNotifyService;
 
-    @Scheduled(cron = "0/20 * * * * *")
+    @Scheduled(cron = "0 0 0/1 * * ?")
     public void gameNotify() {
         logger.info("[通知任务] GameNotifyTask -------> Start");
         try {

@@ -38,8 +38,11 @@
         <!--<table schema="" tableName="t_koala_fg_message" domainObjectName="FgMessage">
     </table>-->
 
-        <table schema="" tableName="t_koala_fg_error" domainObjectName="FgError">
-    </table>
+       <!-- <table schema="" tableName="t_koala_fg_error" domainObjectName="FgError">
+    </table>-->
+
+        <table schema="" tableName="t_koala_fg_config" domainObjectName="FgConfig">
+        </table>
 
         <!--<table schema="" tableName="t_bank_info" domainObjectName="BankInfo">-->
     <!--</table>-->

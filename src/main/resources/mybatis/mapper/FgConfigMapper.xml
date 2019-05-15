@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.koalacute.micro.koala.synthe.mapper.FgConfigMapper">
+  <resultMap id="BaseResultMap" type="com.koalacute.micro.koala.synthe.entity.FgConfig">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="nt_hour" jdbcType="VARCHAR" property="ntHour" />
+    <result column="nt_week" jdbcType="VARCHAR" property="ntWeek" />
+    <result column="nt_title" jdbcType="VARCHAR" property="ntTitle" />
+    <result column="nt_content" jdbcType="VARCHAR" property="ntContent" />
+    <result column="valid_flag" jdbcType="VARCHAR" property="validFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, created_time, updated_time, nt_hour, nt_week, nt_title, nt_content, valid_flag
+  </sql>
+  <select id="selectByExample" parameterType="com.koalacute.micro.koala.synthe.entity.FgConfigExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_koala_fg_config
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_koala_fg_config
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_koala_fg_config
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.koalacute.micro.koala.synthe.entity.FgConfigExample">
+    delete from t_koala_fg_config
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.koalacute.micro.koala.synthe.entity.FgConfig">
+    insert into t_koala_fg_config (id, created_time, updated_time, 
+      nt_hour, nt_week, nt_title, 
+      nt_content, valid_flag)
+    values (#{id,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedTime,jdbcType=TIMESTAMP}, 
+      #{ntHour,jdbcType=VARCHAR}, #{ntWeek,jdbcType=VARCHAR}, #{ntTitle,jdbcType=VARCHAR}, 
+      #{ntContent,jdbcType=VARCHAR}, #{validFlag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.koalacute.micro.koala.synthe.entity.FgConfig">
+    insert into t_koala_fg_config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="ntHour != null">
+        nt_hour,
+      </if>
+      <if test="ntWeek != null">
+        nt_week,
+      </if>
+      <if test="ntTitle != null">
+        nt_title,
+      </if>
+      <if test="ntContent != null">
+        nt_content,
+      </if>
+      <if test="validFlag != null">
+        valid_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ntHour != null">
+        #{ntHour,jdbcType=VARCHAR},
+      </if>
+      <if test="ntWeek != null">
+        #{ntWeek,jdbcType=VARCHAR},
+      </if>
+      <if test="ntTitle != null">
+        #{ntTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ntContent != null">
+        #{ntContent,jdbcType=VARCHAR},
+      </if>
+      <if test="validFlag != null">
+        #{validFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.koalacute.micro.koala.synthe.entity.FgConfigExample" resultType="java.lang.Long">
+    select count(*) from t_koala_fg_config
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_koala_fg_config
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.createdTime != null">
+        created_time = #{record.createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedTime != null">
+        updated_time = #{record.updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ntHour != null">
+        nt_hour = #{record.ntHour,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ntWeek != null">
+        nt_week = #{record.ntWeek,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ntTitle != null">
+        nt_title = #{record.ntTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ntContent != null">
+        nt_content = #{record.ntContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.validFlag != null">
+        valid_flag = #{record.validFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_koala_fg_config
+    set id = #{record.id,jdbcType=BIGINT},
+      created_time = #{record.createdTime,jdbcType=TIMESTAMP},
+      updated_time = #{record.updatedTime,jdbcType=TIMESTAMP},
+      nt_hour = #{record.ntHour,jdbcType=VARCHAR},
+      nt_week = #{record.ntWeek,jdbcType=VARCHAR},
+      nt_title = #{record.ntTitle,jdbcType=VARCHAR},
+      nt_content = #{record.ntContent,jdbcType=VARCHAR},
+      valid_flag = #{record.validFlag,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.koalacute.micro.koala.synthe.entity.FgConfig">
+    update t_koala_fg_config
+    <set>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ntHour != null">
+        nt_hour = #{ntHour,jdbcType=VARCHAR},
+      </if>
+      <if test="ntWeek != null">
+        nt_week = #{ntWeek,jdbcType=VARCHAR},
+      </if>
+      <if test="ntTitle != null">
+        nt_title = #{ntTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ntContent != null">
+        nt_content = #{ntContent,jdbcType=VARCHAR},
+      </if>
+      <if test="validFlag != null">
+        valid_flag = #{validFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.koalacute.micro.koala.synthe.entity.FgConfig">
+    update t_koala_fg_config
+    set created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      nt_hour = #{ntHour,jdbcType=VARCHAR},
+      nt_week = #{ntWeek,jdbcType=VARCHAR},
+      nt_title = #{ntTitle,jdbcType=VARCHAR},
+      nt_content = #{ntContent,jdbcType=VARCHAR},
+      valid_flag = #{validFlag,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
