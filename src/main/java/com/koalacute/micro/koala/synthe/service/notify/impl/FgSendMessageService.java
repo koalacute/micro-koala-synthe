@@ -13,6 +13,7 @@ import com.koalacute.micro.koala.synthe.mapper.FgMessageMapper;
 import com.koalacute.micro.koala.synthe.service.notify.IGameNotifyService;
 import com.koalacute.micro.koala.synthe.service.query.FgConfigQueryService;
 import com.koalacute.micro.koala.synthe.service.remote.RemoteService;
+import com.koalacute.micro.koala.utils.exception.BusinessException;
 import com.koalacute.micro.koala.utils.util.DateFormatUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
@@ -134,7 +135,7 @@ public class FgSendMessageService implements IGameNotifyService {
             List<FgConfig> fgConfigList = fgConfigQueryService.findFgConfigByHourAndValidFlag(DateFormatUtil.getNowHour(), FgConfigValidFlagEnum.VALID.code);
             if (CollectionUtils.isEmpty(fgConfigList) || fgConfigList.size() > 1) {
                 logger.error("[路由通知参数] 当前时间未匹配到对应的活动,当前时间:{}", DateFormatUtil.date2timestamp(new Date()));
-                return;
+                throw new BusinessException("当前时间未匹配到对应的活动");
             }
             fgConfig = fgConfigList.get(0);
         }
